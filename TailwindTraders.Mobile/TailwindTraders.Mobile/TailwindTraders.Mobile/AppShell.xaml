@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       mc:Ignorable="d"
+       xmlns:pages="clr-namespace:TailwindTraders.Mobile.Pages"
+       xmlns:views="clr-namespace:TailwindTraders.Mobile.Views"
+       xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"
+       Title="TailwindTraders.Mobile"
+       x:Class="TailwindTraders.Mobile.AppShell"
+       Visual="Material">
+
+    <Shell.BindingContext>
+        <viewmodels:AppShellViewModel/>
+    </Shell.BindingContext>
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <views:FlyoutHeader />
+    </Shell.FlyoutHeader>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Label Text="{Binding Title}" Padding="20" FontSize="Subtitle" TextColor="Black" />
+        </DataTemplate>
+    </Shell.ItemTemplate>
+    
+    <ShellContent Title="Shopping" ContentTemplate="{DataTemplate pages:ShoppingHomePage}"/>
+
+    <MenuItem Text="Home Appliances" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="homeappliances" />
+    <MenuItem Text="Sink" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="sink"/>
+    <MenuItem Text="Home Items" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="home"/>
+    <MenuItem Text="Gardening" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="gardening"/>
+    <MenuItem Text="Decor" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="decor" />
+    <MenuItem Text="Kitchen Accessories" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="kitchen"/>
+    <MenuItem Text="DIY Tools" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="diytools"/>
+    
+    <ShellContent Title="Wishlist" ContentTemplate="{DataTemplate pages:WishlistPage}"/>
+    <ShellContent Title="Settings" ContentTemplate="{DataTemplate pages:SettingsPage}"/>
+    
+    <MenuItem Text="Logout"/>
+    
+</Shell>

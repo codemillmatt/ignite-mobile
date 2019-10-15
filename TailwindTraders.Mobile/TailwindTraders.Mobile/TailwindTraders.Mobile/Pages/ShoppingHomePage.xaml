@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="TailwindTraders.Mobile.Pages.ShoppingHomePage"
+             Visual="Material">
+
+    <ContentPage.BindingContext>
+        <viewmodels:ShoppingHomeViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="FillAndExpand">
+                <ffimageloading:CachedImage HeightRequest="250" BackgroundColor="Red"/>
+                <Button Text="Take Photo" Margin="0,-30,0,0"
+                        Command="{Binding TakePhotoCommand}"/>
+                <ActivityIndicator Color="Black" IsRunning="{Binding IsBusy}"/>
+                <Label Text="RECOMMENDED" FontSize="Title" HorizontalTextAlignment="Center"/>
+                <CarouselView ItemsSource="{Binding RecommendedCategories}" PeekAreaInsets="75" 
+                              HeightRequest="250">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="25" HeightRequest="200">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="200"/>
+                                </Grid.RowDefinitions>
+
+                                <ffimageloading:CachedImage Grid.Row="0" Grid.Column="0"
+                                    Source="{Binding ImageName}" Aspect="AspectFill" />
+                                <Button Text="{Binding CategoryName}" Grid.Row="0" Grid.Column="0" 
+                                    HorizontalOptions="Center" VerticalOptions="Center"
+                                    Command="{Binding NavigateCommand}" CommandParameter="{Binding CategoryAbbreviation}" />
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <Label Text="RECENTLY VIEWED" FontSize="Title"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
