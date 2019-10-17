@@ -7,6 +7,7 @@
              mc:Ignorable="d"
              x:Class="TailwindTraders.Mobile.Pages.SettingsPage"
              Title="Settings"
+             Shell.BackgroundColor="{StaticResource AccentColor}"
              Visual="Material">
 
     <ContentPage.BindingContext>
@@ -18,7 +19,10 @@
             <Entry Placeholder="Product Service API URL" Text="{Binding ProductsAPIUrl}" />
             <Entry Placeholder="Storage Account Name" Text="{Binding StorageAccountName}"/>
             <Entry Placeholder="Function App URL" Text="{Binding FunctionAppUrl}"/>
-            <Button Text="Save" Command="{Binding SaveSettingsCommand}"/>
+            <Button 
+                Text="Save" HeightRequest="48" CornerRadius="24" Margin="20,20,20,0"
+                BackgroundColor="{StaticResource Accent2Color}" TextColor="{StaticResource PrimaryColor}"
+                Command="{Binding SaveSettingsCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

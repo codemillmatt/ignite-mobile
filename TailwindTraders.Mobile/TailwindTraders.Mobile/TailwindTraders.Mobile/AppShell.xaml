@@ -37,24 +37,31 @@
     </Shell.BindingContext>
 
     <Shell.FlyoutHeader>
-        <views:FlyoutHeader />
+        <views:FlyoutHeader PhotoCommand="{Binding TakePhotoCommand}" />
     </Shell.FlyoutHeader>
 
     <Shell.ItemTemplate>
         <DataTemplate>
-            <Label Text="{Binding Title}" Padding="20" FontSize="Subtitle" TextColor="Black" />
+            <Label Text="{Binding Title}" FontSize="Subtitle" TextColor="{StaticResource AccentColor}" />
         </DataTemplate>
     </Shell.ItemTemplate>
     
     <ShellContent Title="Shopping" ContentTemplate="{DataTemplate pages:ShoppingHomePage}"/>
 
-    <MenuItem Text="Home Appliances" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="homeappliances" />
-    <MenuItem Text="Sink" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="sink"/>
-    <MenuItem Text="Home Items" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="home"/>
-    <MenuItem Text="Gardening" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="gardening"/>
-    <MenuItem Text="Decor" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="decor" />
-    <MenuItem Text="Kitchen Accessories" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="kitchen"/>
-    <MenuItem Text="DIY Tools" Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="diytools"/>
+    <MenuItem Text="Home Appliances"
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="homeappliances" />
+    <MenuItem Text="Sink" 
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="sink"/>
+    <MenuItem Text="Home Items" 
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="home"/>
+    <MenuItem Text="Gardening" 
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="gardening"/>
+    <MenuItem Text="Decor" 
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="decor" />
+    <MenuItem Text="Kitchen Accessories" 
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="kitchen"/>
+    <MenuItem Text="DIY Tools" 
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="diytools"/>
     
     <ShellContent Title="Wishlist" ContentTemplate="{DataTemplate pages:WishlistPage}"/>
     <ShellContent Title="Settings" ContentTemplate="{DataTemplate pages:SettingsPage}"/>

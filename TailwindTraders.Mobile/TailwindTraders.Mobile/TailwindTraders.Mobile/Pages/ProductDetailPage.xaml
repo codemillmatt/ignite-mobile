@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:views="clr-namespace:TailwindTraders.Mobile.Views"
              mc:Ignorable="d"
              x:Class="TailwindTraders.Mobile.Pages.ProductDetailPage"
              Shell.BackgroundColor="{StaticResource AccentColor}"
@@ -42,8 +43,17 @@
                 <Button Text="Add to Cart" Style="{StaticResource Accent2ColorButtonStyle}" Margin="30,30,30,30"/>
                 
                 <Label Text="SIMILAR PRODUCTS" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center" />
-                
-                
+                <CarouselView ItemsSource="{Binding SimilarProducts}" HeightRequest="500" Margin="0,30">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <views:PopularProductView 
+                                ProductName="{Binding Name}" 
+                                ProductImage="{Binding Image}" 
+                                ProductCost="{Binding Price}"/>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
             </StackLayout>
             
         </ScrollView>

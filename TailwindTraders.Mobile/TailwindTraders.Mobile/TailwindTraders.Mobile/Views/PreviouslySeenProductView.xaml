@@ -78,7 +78,8 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     Style="{StaticResource BrandonGrotesqueMediumLargeFontStyle}"
-                    Text="{Binding ProductCost, StringFormat='${0}', Source={x:Reference this}}" />
+                    Text="{Binding ProductCost, StringFormat='${0}', Source={x:Reference this}}"
+                    IsVisible="{Binding ShowCost, Source={x:Reference this}}"/>
 
             </Grid>
 

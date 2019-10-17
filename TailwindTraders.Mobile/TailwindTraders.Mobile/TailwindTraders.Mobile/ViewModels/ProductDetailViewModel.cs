@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
+using TailwindTraders.Mobile.Models;
 using Xamarin.Forms;
 
 namespace TailwindTraders.Mobile.ViewModels
@@ -11,7 +14,7 @@ namespace TailwindTraders.Mobile.ViewModels
     [QueryProperty("BrandName", "brandName")]
     [QueryProperty("CategoryCode", "categoryCode")]
     [QueryProperty("QuantityRemaining", "quantityRemaining")]
-    public class ProductDetailViewModel : BaseViewModel
+    public class ProductDetailViewModel : BaseViewModel<ProductCategoryInfo>
     {
         string productName;
         public string ProductName { get => productName;
@@ -40,5 +43,30 @@ namespace TailwindTraders.Mobile.ViewModels
 
         string quantityRemaining;
         public string QuantityRemaining { get => quantityRemaining; set => SetProperty(ref quantityRemaining, value); }
+
+        public ObservableCollection<Product> SimilarProducts { get; set; }
+
+        public ProductDetailViewModel()
+        {
+            SimilarProducts = new ObservableCollection<Product>();
+        }
+
+        public async Task LoadSimilarProducts()
+        {
+            if (IsInitialized)
+                return;
+
+            // Get products from the same category (making sure not to duplicate the same one)
+            var categoryInfo = await DataStore.GetItemAsync(categoryCode);
+
+            var similarProducts = categoryInfo.Products.Where(p => p.Name != ProductName).Take(3);
+
+            foreach (var item in similarProducts)
+            {
+                SimilarProducts.Add(item);
+            }
+
+            IsInitialized = true;
+        }
     }
 }

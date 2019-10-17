@@ -36,7 +36,7 @@
                 <ActivityIndicator Color="Black" IsRunning="{Binding IsBusy}"/>
                 <Label Text="RECOMMENDED" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center"/>
                 
-                <CarouselView ItemsSource="{Binding RecommendedCategories}" PeekAreaInsets="55" 
+                <CarouselView ItemsSource="{Binding RecommendedCategories}" 
                               HeightRequest="250">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
@@ -57,7 +57,7 @@
                 </CarouselView>
 
                 <Label Text="POPULAR PRODUCTS" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center"/>
-                <CarouselView ItemsSource="{Binding PopularProducts}" HeightRequest="500" PeekAreaInsets="55" Margin="0,30">
+                <CarouselView ItemsSource="{Binding PopularProducts}" HeightRequest="500" Margin="0,30">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
                             <views:PopularProductView ProductName="{Binding Name}" ProductImage="{Binding Image}" ProductCost="{Binding Price}"/>
@@ -69,7 +69,10 @@
                 <CollectionView ItemsSource="{Binding PreviouslySeenProducts}" HeightRequest="350">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <views:PreviouslySeenProductView ProductName="{Binding Name}" ProductImage="{Binding Image}" ProductCost="{Binding Price}"/>
+                            <views:PreviouslySeenProductView
+                                ProductName="{Binding Name}" 
+                                ProductImage="{Binding Image}" 
+                                ProductCost="{Binding Price}"/>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>    
                 </CollectionView>

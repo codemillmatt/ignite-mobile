@@ -12,17 +12,18 @@
     <ContentPage.BindingContext>
         <viewmodels:ProductCategoryCollectionViewModel/>
     </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <CollectionView ItemsSource="{Binding Products}"
                         SelectionMode="Single" 
                         SelectionChangedCommand="{Binding SelectProductCommand}"
-                        SelectedItem="{Binding SelectedProduct}" ItemSizingStrategy="MeasureFirstItem">
+                        SelectedItem="{Binding SelectedProduct}">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" Span="2"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <views:ProductGridView ProductCost="{Binding Price}" ProductImage="{Binding Image}" ProductName="{Binding Name}" 
+                    <views:ProductGridView BackgroundColor="White" ProductCost="{Binding Price}" ProductImage="{Binding Image}" ProductName="{Binding Name}" 
                                            HeightRequest="250" Padding="10,40,10,10"/>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

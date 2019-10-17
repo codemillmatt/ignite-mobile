@@ -4,11 +4,14 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TailwindTraders.Mobile.Views.FlyoutHeader">
+             x:Class="TailwindTraders.Mobile.Views.FlyoutHeader"
+             x:Name="this">
     <ContentView.Content>
-        <StackLayout>
-            <Label Text="Tailwind Traders" FontSize="Title" />
-            <Button Text="Take Photo" />
+        <StackLayout Padding="20">
+            <Label Text="Tailwind Traders" FontSize="Default" Margin="0,0,0,40" />
+            <Button Text="Take Photo" ImageSource="photo" Margin="20,0,20,0" CornerRadius="24" 
+                    BorderColor="{StaticResource AccentColor}" BorderWidth="2"
+                    Command="{Binding PhotoCommand, Source={x:Reference this}}"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

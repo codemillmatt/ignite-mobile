@@ -16,5 +16,12 @@ namespace TailwindTraders.Mobile.Views
         {
             InitializeComponent();
         }
+
+        public static readonly BindableProperty PhotoCommandProperty = BindableProperty.Create(nameof(PhotoCommand), typeof(Command), typeof(FlyoutHeader));
+        public Command PhotoCommand
+        {
+            get => (Command)GetValue(PhotoCommandProperty);
+            set => SetValue(PhotoCommandProperty, value);
+        }
     }
 }
