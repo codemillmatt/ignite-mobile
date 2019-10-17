@@ -26,7 +26,9 @@ IOS_APPCENTER_SECRET_PLACEHOLDER="< ENTER YOUR APP CENTER IOS SECRET HERE >"
 
 APPCENTER_CONSTANT_FILE=$APPCENTER_SOURCE_DIRECTORY/TailwindTraders.Mobile/TailwindTraders.Mobile/TailwindTraders.Mobile/Helpers/AppCenterConstants.cs
 
-if [ -e "$APP_CONSTANT_FILE" ]
+echo $APPCENTER_CONSTANT_FILE
+
+if [ -e "$APPCENTER_CONSTANT_FILE" ]
 then
     echo "Updating the Android App Center Secrets file"
     sed -i ".bak" -e "s,$ANDROID_APPCENTER_SECRET_PLACEHOLDER,$ANDROID_APPCENTER_SECRET,g" $APPCENTER_CONSTANT_FILE
