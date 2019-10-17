@@ -1,6 +1,6 @@
 GOOGLE_JSON_FILE=$APPCENTER_SOURCE_DIRECTORY/TailwindTraders.Mobile/TailwindTraders.Mobile/TailwindTraders.Mobile.Android/google-services.json
 
-if [ -e "$GOOGLE_JSON_FILE" ]
+if [ -e "$GOOGLE_JSON_FILE" ] 
 then
     echo "Updating Google Json"
     echo "$GOOGLE_JSON" > $GOOGLE_JSON_FILE
@@ -9,6 +9,10 @@ then
     echo "File content:"
     cat $GOOGLE_JSON_FILE
 fi
+
+echo ########################################################
+echo "about to load app center secrets"
+echo ########################################################
 
 if [ ! -n "$ANDROID_APPCENTER_SECRET" ] || [ ! -n "$IOS_APPCENTER_SECRET" ]  ; then
 	echo ###################################################################################
