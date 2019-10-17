@@ -10,12 +10,19 @@ using TailwindTraders.Mobile.Helpers;
 using TailwindTraders.Mobile.Models;
 using TailwindTraders.Mobile.Services;
 using Xamarin.Forms;
+using System.Linq;
 
 namespace TailwindTraders.Mobile.ViewModels
 {
-    public class ShoppingHomeViewModel : BaseViewModel<RecommendedProductCategory>
+    public class ShoppingHomeViewModel : BaseViewModel<ProductCategoryInfo>
     {
         public ObservableCollection<RecommendedProductCategory> RecommendedCategories { get; }
+
+        ObservableCollection<Product> popularProducts;
+        public ObservableCollection<Product> PopularProducts { get; set; }
+
+        ObservableCollection<Product> previouslySeenProducts;
+        public ObservableCollection<Product> PreviouslySeenProducts { get; set; }
 
         public ShoppingHomeViewModel()
         {
@@ -24,13 +31,16 @@ namespace TailwindTraders.Mobile.ViewModels
 
             RecommendedCategories = new ObservableCollection<RecommendedProductCategory>
             {
-                new RecommendedProductCategory { CategoryName = "Sink", ImageName = "recommended_bathrooms", 
-                    CategoryAbbreviation ="sink", NavigateCommand = NavigateToProductCategoryCommand },
-                new RecommendedProductCategory { CategoryName = "Gardening", ImageName = "recommended_plants", 
-                    CategoryAbbreviation = "gardening", NavigateCommand = NavigateToProductCategoryCommand },
-                new RecommendedProductCategory { CategoryName = "DIY Tools", ImageName = "recommended_powertools", 
-                    CategoryAbbreviation = "diytools", NavigateCommand = NavigateToProductCategoryCommand }
-            };            
+                new RecommendedProductCategory { CategoryName = ProductCategoryConstants.SinkCategoryName, ImageName = "recommended_bathrooms", 
+                    CategoryAbbreviation = ProductCategoryConstants.SinkCategoryCode, NavigateCommand = NavigateToProductCategoryCommand },
+                new RecommendedProductCategory { CategoryName = ProductCategoryConstants.GardeningCategoryName, ImageName = "recommended_plants", 
+                    CategoryAbbreviation = ProductCategoryConstants.GardeningCategoryCode, NavigateCommand = NavigateToProductCategoryCommand },
+                new RecommendedProductCategory { CategoryName = ProductCategoryConstants.DIYToolsCategoryName, ImageName = "recommended_powertools", 
+                    CategoryAbbreviation = ProductCategoryConstants.DIYToolsCategoryCode, NavigateCommand = NavigateToProductCategoryCommand }
+            };
+
+            PopularProducts = new ObservableCollection<Product>();
+            PreviouslySeenProducts = new ObservableCollection<Product>();
         }
 
         public ICommand NavigateToProductCategoryCommand { get; }
@@ -88,5 +98,29 @@ namespace TailwindTraders.Mobile.ViewModels
             await notification.Notify(toast);
         }
 
+        public async Task LoadData()
+        {
+            if (IsInitialized)
+                return;
+
+            // Grab some data from the kitchen and hom appliances categories
+            var kitchenItems = await DataStore.GetItemAsync(ProductCategoryConstants.KitchenCategoryCode);
+            var appliances = await DataStore.GetItemAsync(ProductCategoryConstants.HomeAppliancesCategoryCode);
+
+            var kitchenItemsSubset = kitchenItems.Products.Take(3);
+            var appliancesSubset = appliances.Products.Take(3);
+
+            foreach (var item in kitchenItemsSubset)
+            {
+                PopularProducts.Add(item);
+            }
+
+            foreach (var item in appliancesSubset)
+            {
+                PreviouslySeenProducts.Add(item);
+            }
+            
+            IsInitialized = true;
+        }
     }
 }

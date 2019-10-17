@@ -4,10 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"
+             xmlns:views="clr-namespace:TailwindTraders.Mobile.Views"
              mc:Ignorable="d"
              x:Class="TailwindTraders.Mobile.Pages.ProductCategoryCollectionPage"
-             Title="{Binding Title}"
-             Visual="Material">
+             Shell.BackgroundColor="{StaticResource AccentColor}"
+             Title="{Binding Title}">
     <ContentPage.BindingContext>
         <viewmodels:ProductCategoryCollectionViewModel/>
     </ContentPage.BindingContext>
@@ -15,12 +16,14 @@
         <CollectionView ItemsSource="{Binding Products}"
                         SelectionMode="Single" 
                         SelectionChangedCommand="{Binding SelectProductCommand}"
-                        SelectedItem="{Binding SelectedProduct}">
+                        SelectedItem="{Binding SelectedProduct}" ItemSizingStrategy="MeasureFirstItem">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"/>
+            </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout>
-                        <Label Text="{Binding Name}"/>
-                    </StackLayout>
+                    <views:ProductGridView ProductCost="{Binding Price}" ProductImage="{Binding Image}" ProductName="{Binding Name}" 
+                                           HeightRequest="250" Padding="10,40,10,10"/>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

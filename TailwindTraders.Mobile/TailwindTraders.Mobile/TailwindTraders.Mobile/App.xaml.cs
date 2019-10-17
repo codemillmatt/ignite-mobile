@@ -14,8 +14,11 @@ namespace TailwindTraders.Mobile
         {
             InitializeComponent();
 
+            Barrel.ApplicationId = "tailwinddata";
+
             DependencyService.Register<MockDataStore>();
             DependencyService.Register<ProductCategoryDataStore>();
+            DependencyService.Register<WishlistDataStore>();
 
             MainPage = new AppShell();
         }
@@ -24,7 +27,7 @@ namespace TailwindTraders.Mobile
         {
             // Handle when your app starts
 
-            Barrel.ApplicationId = "tailwinddata";
+            
         }
 
         protected override void OnSleep()

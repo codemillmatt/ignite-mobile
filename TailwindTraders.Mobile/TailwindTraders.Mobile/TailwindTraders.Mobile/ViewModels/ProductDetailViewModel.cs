@@ -8,7 +8,7 @@ namespace TailwindTraders.Mobile.ViewModels
     [QueryProperty("ProductName", "productName")]
     [QueryProperty("Price", "price")]
     [QueryProperty("ImageUrl", "imageUrl")]
-    [QueryProperty("BrandUrl", "brandUrl")]
+    [QueryProperty("BrandName", "brandName")]
     [QueryProperty("CategoryCode", "categoryCode")]
     [QueryProperty("QuantityRemaining", "quantityRemaining")]
     public class ProductDetailViewModel : BaseViewModel

@@ -12,7 +12,9 @@ using Plugin.CurrentActivity;
 
 namespace TailwindTraders.Mobile.Droid
 {
-    [Activity(Label = "TailwindTraders.Mobile", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "@string/appName", Icon = "@mipmap/icon", 
+        Theme = "@style/MainTheme", 
+        ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

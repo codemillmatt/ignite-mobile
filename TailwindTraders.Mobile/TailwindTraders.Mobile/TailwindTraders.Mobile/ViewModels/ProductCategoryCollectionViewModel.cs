@@ -54,7 +54,7 @@ namespace TailwindTraders.Mobile.ViewModels
             var productName = $"productName={Uri.EscapeDataString(SelectedProduct.Name)}";
             var price = $"price={SelectedProduct.Price}";
             var imageUrl = $"imageUrl={Uri.EscapeDataString(SelectedProduct.ImageUrl.ToString())}";
-            var brandName = $"brandName={SelectedProduct.Brand}";
+            var brandName = $"brandName={SelectedProduct.Brand.Name}";
             var categoryCode = $"categoryCode={CategoryCode}";
             var quantityRemaining = $"quantityRemaining={SelectedProduct.StockUnits}";
 

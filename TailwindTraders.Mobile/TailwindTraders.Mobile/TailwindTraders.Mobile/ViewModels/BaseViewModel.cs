@@ -17,6 +17,13 @@ namespace TailwindTraders.Mobile.ViewModels
 
     public class BaseViewModel : INotifyPropertyChanged
     {
+        bool isInitialized = false;
+        public bool IsInitialized
+        {
+            get => isInitialized;
+            set => SetProperty(ref isInitialized, value);
+        }
+
         bool isBusy = false;
         public bool IsBusy
         {

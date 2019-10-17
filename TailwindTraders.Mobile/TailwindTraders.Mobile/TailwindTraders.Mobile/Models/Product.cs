@@ -19,6 +19,8 @@ namespace TailwindTraders.Mobile.Models
         [JsonProperty("imageUrl")]
         public Uri ImageUrl { get; set; }
 
+        public string Image { get => ImageUrl.ToString(); }
+
         [JsonProperty("brand")]
         public Brand Brand { get; set; }
 
