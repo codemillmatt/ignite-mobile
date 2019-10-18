@@ -124,6 +124,12 @@ namespace TailwindTraders.Mobile.ViewModels
             {
                 Crashes.TrackError(ex, new Dictionary<string, string> { { "Function", "ShoppingHomeViewModel.LoadData" } });
                 IsInitialized = false;
+
+                if (PopularProducts.Count == 0)
+                {
+                    PopularProducts.Add(new Product { Name = "Wood Table", Price = 100, ImageUrl = new Uri("https://ttstorageucrqili3hgqvk.blob.core.windows.net/product-detail/19806834.jpg") });
+                    PreviouslySeenProducts.Add(new Product { Name = "Microwave 0.9 Cu Ft 900 W", Price = 100, ImageUrl = new Uri("https://ttstorageucrqili3hgqvk.blob.core.windows.net/product-detail/10446729.jpg") });
+                }
             }
         }
     }
