@@ -7,31 +7,9 @@
        xmlns:pages="clr-namespace:TailwindTraders.Mobile.Pages"
        xmlns:views="clr-namespace:TailwindTraders.Mobile.Views"
        xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"
-       xmlns:styles="clr-namespace:TailwindTraders.Mobile.Styles"
-       Title="TailwindTraders.Mobile"
+       xmlns:styles="clr-namespace:TailwindTraders.Mobile.Styles"              
        x:Class="TailwindTraders.Mobile.AppShell">
-
-    <Shell.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <styles:Colors/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
         
-        <Style x:Key="BaseStyle" TargetType="Element">
-            <Setter Property="Shell.BackgroundColor" Value="{StaticResource AccentColor}" />
-            <Setter Property="Shell.ForegroundColor" Value="White" />
-            <Setter Property="Shell.TitleColor" Value="White" />
-            <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-            <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-            <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-            <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-            <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-            <Setter Property="Shell.TabBarTitleColor" Value="White"/>
-        </Style>
-        <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
-    </Shell.Resources>
-    
     <Shell.BindingContext>
         <viewmodels:AppShellViewModel/>
     </Shell.BindingContext>
@@ -42,7 +20,7 @@
 
     <Shell.ItemTemplate>
         <DataTemplate>
-            <Label Text="{Binding Title}" FontSize="Subtitle" TextColor="{StaticResource AccentColor}" />
+            <Label Text="{Binding Title}" FontSize="Body" TextColor="{StaticResource AccentColor}" Padding="20,0" />
         </DataTemplate>
     </Shell.ItemTemplate>
     

@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Microsoft.AppCenter.Crashes;
 using Plugin.Toasts;
 using TailwindTraders.Mobile.Helpers;
 using TailwindTraders.Mobile.Services;
@@ -56,7 +57,7 @@ namespace TailwindTraders.Mobile.ViewModels
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(ex);
+                Crashes.TrackError(ex, new Dictionary<string, string> { { "Function", "AzureShellViewModel.ExecuteTakePhotoCommand" } });
             }
             finally
             {

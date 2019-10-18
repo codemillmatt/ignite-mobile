@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Push;
+using Plugin.XSnack;
 using UIKit;
 using UserNotifications;
+using Xamarin.Forms;
 
 namespace TailwindTraders.Mobile.iOS
 {
@@ -24,22 +28,47 @@ namespace TailwindTraders.Mobile.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            DependencyService.Register<IXSnack, XSnackImplementation>();
 
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
-            global::Xamarin.Forms.FormsMaterial.Init();
-
+                       
             LoadApplication(new App());
 
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert
-                                                      | UNAuthorizationOptions.Badge
-                                                      | UNAuthorizationOptions.Sound,
-                                                      (granted, error) =>
-                                                      {
-                                                          // Do something if needed
-                                                      });
+            UINavigationBar.Appearance.Translucent = false;            
+            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(47, 75, 102);
+            UINavigationBar.Appearance.TintColor = UIColor.White;
+                        
 
             return base.FinishedLaunching(app, options);
         }
+
+        //public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        //{
+        //    Analytics.TrackEvent("iOS Registered - Remote Notifications");
+        //    Push.RegisteredForRemoteNotifications(deviceToken);
+        //}
+
+        //public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
+        //{
+        //    Analytics.TrackEvent("iOS FAILED - Remote Notifications");
+
+        //    Push.FailedToRegisterForRemoteNotifications(error);
+        //}
+
+        //public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, System.Action<UIBackgroundFetchResult> completionHandler)
+        //{
+        //    Analytics.TrackEvent("iOS Received - Remote Notifications");
+
+        //    var result = Push.DidReceiveRemoteNotification(userInfo);
+        //    if (result)
+        //    {
+        //        completionHandler(UIBackgroundFetchResult.NewData);
+        //    }
+        //    else
+        //    {
+        //        completionHandler(UIBackgroundFetchResult.NoData);
+        //    }
+        //}        
     }
 }

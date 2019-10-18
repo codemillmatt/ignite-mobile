@@ -9,6 +9,7 @@ using Xamarin.Essentials;
 using TailwindTraders.Mobile.Helpers;
 using Newtonsoft.Json;
 using MonkeyCache.SQLite;
+using Microsoft.AppCenter.Crashes;
 
 namespace TailwindTraders.Mobile.Services
 {
@@ -47,7 +48,7 @@ namespace TailwindTraders.Mobile.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Unable to get information from server {ex}");             
+                Crashes.TrackError(ex, new Dictionary<string, string> { { "Function", "ProductService.GetProductsForCategory" } });
             }
 
             return default(T);

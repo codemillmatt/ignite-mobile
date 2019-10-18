@@ -4,6 +4,7 @@ using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.Azure.Storage;
 using Microsoft.Azure.Storage.Blob;
 using Newtonsoft.Json;
@@ -29,7 +30,7 @@ namespace TailwindTraders.Mobile.Services
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(ex);
+                Crashes.TrackError(ex, new Dictionary<string, string> { { "Function", "AzureStorageService.GetSharedAccessSignature" } });
             }
             return string.Empty;
         }
@@ -64,7 +65,7 @@ namespace TailwindTraders.Mobile.Services
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(ex);
+                Crashes.TrackError(ex, new Dictionary<string, string> { { "Function", "AzureStorageService.UploadPhoto" } });
                 return false;
             }
 

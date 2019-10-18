@@ -11,17 +11,17 @@ using TailwindTraders.Mobile.Models;
 using TailwindTraders.Mobile.Services;
 using Xamarin.Forms;
 using System.Linq;
+using Microsoft.AppCenter.Crashes;
+using Plugin.XSnack;
 
 namespace TailwindTraders.Mobile.ViewModels
 {
     public class ShoppingHomeViewModel : BaseViewModel<ProductCategoryInfo>
     {
         public ObservableCollection<RecommendedProductCategory> RecommendedCategories { get; }
-
-        ObservableCollection<Product> popularProducts;
+        
         public ObservableCollection<Product> PopularProducts { get; set; }
-
-        ObservableCollection<Product> previouslySeenProducts;
+        
         public ObservableCollection<Product> PreviouslySeenProducts { get; set; }
 
         public ShoppingHomeViewModel()
@@ -67,6 +67,9 @@ namespace TailwindTraders.Mobile.ViewModels
             else
                 photoStream = await photoService.PickPhoto();
 
+            if (photoStream == null)
+                return;
+
             try
             {
                 IsBusy = true;
@@ -78,49 +81,50 @@ namespace TailwindTraders.Mobile.ViewModels
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(ex);
+                Crashes.TrackError(ex, new Dictionary<string, string> { { "Function", "ShoppingHomeViewModel.ExecuteTakePhotoCommand" } });
+                return;
             }
             finally
             {
                 IsBusy = false;
             }
 
-            var toast = new NotificationOptions
-            {
-                Title = success ? "Upload Succeeded" : "Upload Failed",
-                Description = success ? "Photo successfully uploaded" : "There was an error while uploading",
-                ClearFromHistory = true,
-                IsClickable = false
-            };
-
-            var notification = DependencyService.Get<IToastNotificator>();
-
-            await notification.Notify(toast);
+            var message = success ? "Photo successfully uploaded" : "There was an error while uploading";
+            var snack = DependencyService.Get<IXSnack>();
+            await snack.ShowMessageAsync(message);
         }
 
         public async Task LoadData()
         {
-            if (IsInitialized)
-                return;
-
-            // Grab some data from the kitchen and hom appliances categories
-            var kitchenItems = await DataStore.GetItemAsync(ProductCategoryConstants.KitchenCategoryCode);
-            var appliances = await DataStore.GetItemAsync(ProductCategoryConstants.HomeAppliancesCategoryCode);
-
-            var kitchenItemsSubset = kitchenItems.Products.Take(3);
-            var appliancesSubset = appliances.Products.Take(3);
-
-            foreach (var item in kitchenItemsSubset)
+            try
             {
-                PopularProducts.Add(item);
-            }
+                if (IsInitialized)
+                    return;
 
-            foreach (var item in appliancesSubset)
-            {
-                PreviouslySeenProducts.Add(item);
+                // Grab some data from the kitchen and hom appliances categories
+                var kitchenItems = await DataStore.GetItemAsync(ProductCategoryConstants.KitchenCategoryCode);
+                var appliances = await DataStore.GetItemAsync(ProductCategoryConstants.HomeAppliancesCategoryCode);
+
+                var kitchenItemsSubset = kitchenItems.Products.Take(3);
+                var appliancesSubset = appliances.Products.Take(3);
+
+                foreach (var item in kitchenItemsSubset)
+                {
+                    PopularProducts.Add(item);
+                }
+
+                foreach (var item in appliancesSubset)
+                {
+                    PreviouslySeenProducts.Add(item);
+                }
+
+                IsInitialized = true;
             }
-            
-            IsInitialized = true;
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex, new Dictionary<string, string> { { "Function", "ShoppingHomeViewModel.LoadData" } });
+                IsInitialized = false;
+            }
         }
     }
 }

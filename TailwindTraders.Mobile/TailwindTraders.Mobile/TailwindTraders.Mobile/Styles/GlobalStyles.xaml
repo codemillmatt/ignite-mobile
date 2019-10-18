@@ -47,7 +47,7 @@
         <Setter Property="CornerRadius">32</Setter>
         <Setter Property="HeightRequest">64</Setter>
         <Setter Property="android:Button.UseDefaultShadow">true</Setter>
-        <Setter Property="ios:VisualElement.IsShadowEnabled">false</Setter>
+        <Setter Property="ios:VisualElement.IsShadowEnabled">true</Setter>
         <Setter Property="ios:VisualElement.ShadowColor">Black</Setter>
         <Setter Property="ios:VisualElement.ShadowOffset" Value="10,10" />
         <Setter Property="ios:VisualElement.ShadowOpacity">0.2</Setter>

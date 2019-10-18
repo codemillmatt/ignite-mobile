@@ -26,6 +26,8 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Matthew Soucoup (HQER4F7A36)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -35,6 +37,8 @@
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Matthew Soucoup (HQER4F7A36)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,6 +52,8 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>Tailwind Traders Cleaned DEV</CodesignProvision>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -56,8 +62,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Matthew Soucoup (HQER4F7A36)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -74,19 +81,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
@@ -98,13 +96,7 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
@@ -123,6 +115,47 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\header.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\header.imageset\header.jpg" />
+    <ImageAsset Include="Assets.xcassets\recommended_bathrooms.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\recommended_bathrooms.imageset\recommended_bathrooms.jpg" />
+    <ImageAsset Include="Assets.xcassets\recommended_hinges.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\recommended_hinges.imageset\recommended_hinges.jpg" />
+    <ImageAsset Include="Assets.xcassets\recommended_lighting.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\recommended_lighting.imageset\recommended_lighting.jpg" />
+    <ImageAsset Include="Assets.xcassets\recommended_plants.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\recommended_plants.imageset\recommended_plants.jpg" />
+    <ImageAsset Include="Assets.xcassets\recommended_powertools.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\recommended_powertools.imageset\recommended_powertools.jpg" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60-1.png" />
+    <ImageAsset Include="Assets.xcassets\logo_header_b.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo_header_b.imageset\logo_header_b.png" />
+    <ImageAsset Include="Assets.xcassets\logo_header_b.imageset\logo_header_b%402x.png" />
+    <ImageAsset Include="Assets.xcassets\logo_header_b.imageset\logo_header_b%403x.png" />
+    <ImageAsset Include="Assets.xcassets\logo_horizontal_b.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo_horizontal_b.imageset\logo_horizontal-b.png" />
+    <ImageAsset Include="Assets.xcassets\logo_horizontal_b.imageset\logo_horizontal-b%402x.png" />
+    <ImageAsset Include="Assets.xcassets\logo_horizontal_b.imageset\logo_horizontal-b%403x.png" />
+    <ImageAsset Include="Assets.xcassets\logo_microsoft_w.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo_microsoft_w.imageset\logo_microsoft_w.png" />
+    <ImageAsset Include="Assets.xcassets\logo_microsoft_w.imageset\logo_microsoft_w%402x.png" />
+    <ImageAsset Include="Assets.xcassets\logo_microsoft_w.imageset\logo_microsoft_w%403x.png" />
+    <ImageAsset Include="Assets.xcassets\logo_vertical_w.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo_vertical_w.imageset\logo_vertical_w.png" />
+    <ImageAsset Include="Assets.xcassets\logo_vertical_w.imageset\logo_vertical_w%402x.png" />
+    <ImageAsset Include="Assets.xcassets\logo_vertical_w.imageset\logo_vertical_w%403x.png" />
+    <ImageAsset Include="Assets.xcassets\photo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\photo.imageset\photo.png" />
+    <ImageAsset Include="Assets.xcassets\photo.imageset\photo%402x.png" />
+    <ImageAsset Include="Assets.xcassets\photo.imageset\photo%403x.png" />
+    <ImageAsset Include="Assets.xcassets\splash_screen.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\splash_screen.imageset\Splash_screen.jpg" />
+    <ImageAsset Include="Assets.xcassets\splash_screen.imageset\Splash_screen%402x.jpg" />
+    <ImageAsset Include="Assets.xcassets\splash_screen.imageset\Splash_screen%403x.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -155,7 +188,7 @@
       <Version>3.3.2</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
-      <Version>4.0.1.5</Version>
+      <Version>4.4.6-beta</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading">
       <Version>2.4.11.982</Version>
@@ -163,14 +196,35 @@
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
       <Version>2.4.11.982</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.851321-pre3" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Plugin.XSnack">
+      <Version>1.0.17</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\TailwindTraders.Mobile\TailwindTraders.Mobile.csproj">
-      <Project>{7CC20DE6-C5CE-4F01-BA00-337AF4CD272C}</Project>
+      <Project>{C5E60C1E-2756-482B-B0E3-044DD763219E}</Project>
       <Name>TailwindTraders.Mobile</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\header.imageset\" />
+    <Folder Include="Assets.xcassets\recommended_bathrooms.imageset\" />
+    <Folder Include="Assets.xcassets\recommended_hinges.imageset\" />
+    <Folder Include="Assets.xcassets\recommended_lighting.imageset\" />
+    <Folder Include="Assets.xcassets\recommended_plants.imageset\" />
+    <Folder Include="Assets.xcassets\recommended_powertools.imageset\" />
+    <Folder Include="Assets.xcassets\logo_header_b.imageset\" />
+    <Folder Include="Assets.xcassets\logo_horizontal_b.imageset\" />
+    <Folder Include="Assets.xcassets\logo_microsoft_w.imageset\" />
+    <Folder Include="Assets.xcassets\logo_vertical_w.imageset\" />
+    <Folder Include="Assets.xcassets\photo.imageset\" />
+    <Folder Include="Assets.xcassets\splash_screen.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
 </Project>

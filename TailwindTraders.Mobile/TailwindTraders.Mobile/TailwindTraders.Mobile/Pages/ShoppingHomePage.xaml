@@ -6,14 +6,17 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"
              xmlns:views="clr-namespace:TailwindTraders.Mobile.Views"
-             mc:Ignorable="d"
-             Shell.BackgroundColor="{StaticResource AccentColor}"             
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             mc:Ignorable="d"             
+             ios:Page.UseSafeArea="True"
+             Shell.BackgroundColor="{StaticResource AccentColor}"
+             Shell.TitleColor="{StaticResource PrimaryColor}"
              x:Class="TailwindTraders.Mobile.Pages.ShoppingHomePage">
 
     <ContentPage.BindingContext>
         <viewmodels:ShoppingHomeViewModel/>
     </ContentPage.BindingContext>
-
+    
     <Shell.TitleView>
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
             <Image Margin="-10,0,0,0" Source="logo_vertical_w" HorizontalOptions="CenterAndExpand" />
@@ -37,7 +40,7 @@
                 <Label Text="RECOMMENDED" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center"/>
                 
                 <CarouselView ItemsSource="{Binding RecommendedCategories}" 
-                              HeightRequest="250">
+                              HeightRequest="250" PeekAreaInsets="55">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="25" HeightRequest="200">
@@ -57,7 +60,7 @@
                 </CarouselView>
 
                 <Label Text="POPULAR PRODUCTS" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center"/>
-                <CarouselView ItemsSource="{Binding PopularProducts}" HeightRequest="500" Margin="0,30">
+                <CarouselView ItemsSource="{Binding PopularProducts}" HeightRequest="450" Margin="0,30" PeekAreaInsets="55">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
                             <views:PopularProductView ProductName="{Binding Name}" ProductImage="{Binding Image}" ProductCost="{Binding Price}"/>
@@ -65,7 +68,7 @@
                     </CarouselView.ItemTemplate>
                 </CarouselView>
                 
-                <Label Text="PREVIOUSLY SEEN" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center"/>
+                <Label Text="PREVIOUSLY SEEN" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center" />
                 <CollectionView ItemsSource="{Binding PreviouslySeenProducts}" HeightRequest="350">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>

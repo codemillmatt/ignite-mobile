@@ -5,13 +5,9 @@
 		<provider android:name="android.support.v4.content.FileProvider" android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
 		</provider>
-    <!-- Set default notification icon and color. -->
-    <meta-data
-        android:name="com.google.firebase.messaging.default_notification_icon"
-        android:resource="@drawable/logo_vertical_w" />
-    <meta-data
-        android:name="com.google.firebase.messaging.default_notification_color"
-        android:value="#2F4B66" />
+		<!-- Set default notification icon and color. -->
+		<meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/logo_vertical_w" />
+		<meta-data android:name="com.google.firebase.messaging.default_notification_color" android:value="#2F4B66" />
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>

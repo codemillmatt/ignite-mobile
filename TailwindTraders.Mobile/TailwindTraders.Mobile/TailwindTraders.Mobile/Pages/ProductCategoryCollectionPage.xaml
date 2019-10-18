@@ -8,10 +8,13 @@
              mc:Ignorable="d"
              x:Class="TailwindTraders.Mobile.Pages.ProductCategoryCollectionPage"
              Shell.BackgroundColor="{StaticResource AccentColor}"
+             Shell.TitleColor="{StaticResource PrimaryColor}"             
              Title="{Binding Title}">
     <ContentPage.BindingContext>
         <viewmodels:ProductCategoryCollectionViewModel/>
     </ContentPage.BindingContext>
+
+    
 
     <ContentPage.Content>
         <CollectionView ItemsSource="{Binding Products}"

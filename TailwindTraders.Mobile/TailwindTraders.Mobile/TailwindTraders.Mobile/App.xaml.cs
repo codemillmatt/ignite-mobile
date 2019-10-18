@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using Microsoft.AppCenter.Push;
 using Xamarin.Essentials;
 using Plugin.Toasts;
+using Plugin.XSnack;
+using System.Threading.Tasks;
 
 namespace TailwindTraders.Mobile
 {
@@ -33,7 +35,7 @@ namespace TailwindTraders.Mobile
 
         protected async override void OnStart()
         {
-            SetupPushNotifications();
+            await SetupPushNotifications();
 
             // Handle when your app starts
             AppCenter.Start($"ios={AppCenterConstants.iOSAppSecret};" +
@@ -59,11 +61,22 @@ namespace TailwindTraders.Mobile
             // Handle when your app resumes
         }
 
-        private void SetupPushNotifications()
+        private async Task SetupPushNotifications()
         {
             if (!AppCenter.Configured)
             {
-                Push.PushNotificationReceived += (sender, e) =>
+                var isEnabled = await Push.IsEnabledAsync();
+
+                if (!isEnabled)
+                {
+                    await Push.SetEnabledAsync(true);
+                    isEnabled = await Push.IsEnabledAsync();
+                }
+
+                if (!isEnabled)
+                    Analytics.TrackEvent("Issues with enabling push");
+
+                Push.PushNotificationReceived += async (sender, e) =>
                 {
                     // Add the notification message and title to the message
                     var summary = $"Push notification received:" +
@@ -72,31 +85,27 @@ namespace TailwindTraders.Mobile
 
                     // If there is custom data associated with the notification,
                     // print the entries
+                    var analyticsData = new Dictionary<string, string>();
+
                     if (e.CustomData != null)
                     {
                         summary += "\n\tCustom data:\n";
                         foreach (var key in e.CustomData.Keys)
                         {
                             summary += $"\t\t{key} : {e.CustomData[key]}\n";
+
+                            analyticsData.Add(key, e.CustomData[key]);
                         }
                     }
 
-                    // Send the notification summary to debug output
-                    System.Diagnostics.Debug.WriteLine(summary);
-                    MainThread.BeginInvokeOnMainThread(async () =>
-                    {                        
-                        var toast = new NotificationOptions
-                        {
-                            Title = "Message from Tailwind Traders",
-                            Description = e.Message,
-                            ClearFromHistory = true,
-                            IsClickable = false
-                        };
+                    analyticsData.Add("title", e.Title);
+                    analyticsData.Add("message", e.Message);
 
-                        var notification = DependencyService.Get<IToastNotificator>();
+                    // Track that notification received
+                    Analytics.TrackEvent("Push Received", analyticsData);
 
-                        await notification.Notify(toast);
-                    });
+                    var snack = DependencyService.Get<IXSnack>();
+                    await snack.ShowMessageAsync(e.Title);                   
                 };
             }
 

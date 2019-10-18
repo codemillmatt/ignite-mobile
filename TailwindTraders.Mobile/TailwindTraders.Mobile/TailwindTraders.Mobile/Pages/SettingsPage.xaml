@@ -7,20 +7,23 @@
              mc:Ignorable="d"
              x:Class="TailwindTraders.Mobile.Pages.SettingsPage"
              Title="Settings"
-             Shell.BackgroundColor="{StaticResource AccentColor}"
-             Visual="Material">
+             Shell.BackgroundColor="{StaticResource AccentColor}"             
+             Shell.TitleColor="White">
 
     <ContentPage.BindingContext>
         <viewmodels:SettingsViewModel/>
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <StackLayout Padding="20,20,20,20" Spacing="20">
+        <StackLayout Spacing="5" Margin="20,40,20,20">            
+            <Label Text="Product Service API URL" TextColor="{StaticResource Accent2Color}"  />
             <Entry Placeholder="Product Service API URL" Text="{Binding ProductsAPIUrl}" />
-            <Entry Placeholder="Storage Account Name" Text="{Binding StorageAccountName}"/>
-            <Entry Placeholder="Function App URL" Text="{Binding FunctionAppUrl}"/>
-            <Button 
-                Text="Save" HeightRequest="48" CornerRadius="24" Margin="20,20,20,0"
+            <Label Text="Storage Account Name" TextColor="{StaticResource Accent2Color}" />
+            <Entry Placeholder="Storage Account Name" Text="{Binding StorageAccountName}" />
+            <Label Text="Function App URL" TextColor="{StaticResource Accent2Color}" />
+            <Entry Placeholder="Function App URL" Text="{Binding FunctionAppUrl}" />
+            <Button
+                Text="Save" HeightRequest="48" CornerRadius="24" Margin="20,40,20,0"
                 BackgroundColor="{StaticResource Accent2Color}" TextColor="{StaticResource PrimaryColor}"
                 Command="{Binding SaveSettingsCommand}"/>
         </StackLayout>

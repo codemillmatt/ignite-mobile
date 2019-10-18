@@ -36,14 +36,14 @@ namespace TailwindTraders.Mobile.Services
                 await Xamarin.Forms.Shell.Current.DisplayAlert("No Photos", "Photo picking not supported", "OK");
                 return null;
             }
-
+            
             var options = new PickMediaOptions { CompressionQuality = 50, PhotoSize = Plugin.Media.Abstractions.PhotoSize.Large };
-            var photo = await CrossMedia.Current.PickPhotoAsync(options);
+            var photo = await CrossMedia.Current.PickPhotosAsync(options);
 
             if (photo == null)
                 return null;
 
-            return photo.GetStream();
+            return photo[0].GetStream();
         }
     }
 }

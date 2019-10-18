@@ -9,6 +9,7 @@ using Android.OS;
 using Xamarin.Forms;
 using Plugin.Toasts;
 using Plugin.CurrentActivity;
+using Plugin.XSnack;
 
 namespace TailwindTraders.Mobile.Droid
 {
@@ -27,6 +28,7 @@ namespace TailwindTraders.Mobile.Droid
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+            DependencyService.Register<IXSnack, XSnackImplementation>();
 
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

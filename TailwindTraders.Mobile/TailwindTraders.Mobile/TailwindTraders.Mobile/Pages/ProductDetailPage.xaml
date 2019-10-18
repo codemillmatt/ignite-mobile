@@ -9,6 +9,7 @@
              mc:Ignorable="d"
              x:Class="TailwindTraders.Mobile.Pages.ProductDetailPage"
              Shell.BackgroundColor="{StaticResource AccentColor}"
+             Shell.TitleColor="{StaticResource PrimaryColor}"
              Title="{Binding ProductName}">
 
     <ContentPage.Resources>
