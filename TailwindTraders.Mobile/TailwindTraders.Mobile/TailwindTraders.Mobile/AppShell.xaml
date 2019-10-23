@@ -7,7 +7,8 @@
        xmlns:pages="clr-namespace:TailwindTraders.Mobile.Pages"
        xmlns:views="clr-namespace:TailwindTraders.Mobile.Views"
        xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"
-       xmlns:styles="clr-namespace:TailwindTraders.Mobile.Styles"              
+       Shell.BackgroundColor="{StaticResource AccentColor}"            
+       Shell.TitleColor="{StaticResource PrimaryColor}"
        x:Class="TailwindTraders.Mobile.AppShell">
         
     <Shell.BindingContext>

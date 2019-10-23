@@ -18,27 +18,34 @@ namespace TailwindTraders.Mobile.ViewModels
 {
     public class ShoppingHomeViewModel : BaseViewModel<ProductCategoryInfo>
     {
-        public ObservableCollection<RecommendedProductCategory> RecommendedCategories { get; }
-        
-        public ObservableCollection<Product> PopularProducts { get; set; }
-        
-        public ObservableCollection<Product> PreviouslySeenProducts { get; set; }
+        ObservableCollection<RecommendedProductCategory> recommendedCategories;
+        public ObservableCollection<RecommendedProductCategory> RecommendedCategories 
+        {
+            get => recommendedCategories;
+            set => SetProperty(ref recommendedCategories, value);
+        }
+
+        ObservableCollection<Product> popularProducts;
+        public ObservableCollection<Product> PopularProducts 
+        {
+            get => popularProducts;
+            set => SetProperty(ref popularProducts, value);
+        }
+
+        ObservableCollection<Product> previouslySeen;
+        public ObservableCollection<Product> PreviouslySeenProducts 
+        {
+            get => previouslySeen;
+            set => SetProperty(ref previouslySeen, value);
+        }
 
         public ShoppingHomeViewModel()
         {
             NavigateToProductCategoryCommand = new Command<string>(async (code) => await ExecuteNavigateToProductCategoryCommand(code));
             TakePhotoCommand = new Command(async () => await ExecuteTakePhotoCommand());
 
-            RecommendedCategories = new ObservableCollection<RecommendedProductCategory>
-            {
-                new RecommendedProductCategory { CategoryName = ProductCategoryConstants.SinkCategoryName, ImageName = "recommended_bathrooms", 
-                    CategoryAbbreviation = ProductCategoryConstants.SinkCategoryCode, NavigateCommand = NavigateToProductCategoryCommand },
-                new RecommendedProductCategory { CategoryName = ProductCategoryConstants.GardeningCategoryName, ImageName = "recommended_plants", 
-                    CategoryAbbreviation = ProductCategoryConstants.GardeningCategoryCode, NavigateCommand = NavigateToProductCategoryCommand },
-                new RecommendedProductCategory { CategoryName = ProductCategoryConstants.DIYToolsCategoryName, ImageName = "recommended_powertools", 
-                    CategoryAbbreviation = ProductCategoryConstants.DIYToolsCategoryCode, NavigateCommand = NavigateToProductCategoryCommand }
-            };
 
+            RecommendedCategories = new ObservableCollection<RecommendedProductCategory>();
             PopularProducts = new ObservableCollection<Product>();
             PreviouslySeenProducts = new ObservableCollection<Product>();
         }
@@ -98,25 +105,30 @@ namespace TailwindTraders.Mobile.ViewModels
         {
             try
             {
-                if (IsInitialized)
-                    return;
+                //if (IsInitialized)
+                //    return;
+
+                RecommendedCategories = null;
+
+                RecommendedCategories = new ObservableCollection<RecommendedProductCategory>
+                {
+                    new RecommendedProductCategory { CategoryName = ProductCategoryConstants.SinkCategoryName, ImageName = "recommended_bathrooms",
+                        CategoryAbbreviation = ProductCategoryConstants.SinkCategoryCode, NavigateCommand = NavigateToProductCategoryCommand },
+                    new RecommendedProductCategory { CategoryName = ProductCategoryConstants.GardeningCategoryName, ImageName = "recommended_plants",
+                        CategoryAbbreviation = ProductCategoryConstants.GardeningCategoryCode, NavigateCommand = NavigateToProductCategoryCommand },
+                    new RecommendedProductCategory { CategoryName = ProductCategoryConstants.DIYToolsCategoryName, ImageName = "recommended_powertools",
+                        CategoryAbbreviation = ProductCategoryConstants.DIYToolsCategoryCode, NavigateCommand = NavigateToProductCategoryCommand }
+                };
 
                 // Grab some data from the kitchen and hom appliances categories
                 var kitchenItems = await DataStore.GetItemAsync(ProductCategoryConstants.KitchenCategoryCode);
                 var appliances = await DataStore.GetItemAsync(ProductCategoryConstants.HomeAppliancesCategoryCode);
 
-                var kitchenItemsSubset = kitchenItems.Products.Take(3);
-                var appliancesSubset = appliances.Products.Take(3);
+                PopularProducts = null;
+                PopularProducts = new ObservableCollection<Product>(kitchenItems.Products.Take(3));
 
-                foreach (var item in kitchenItemsSubset)
-                {
-                    PopularProducts.Add(item);
-                }
-
-                foreach (var item in appliancesSubset)
-                {
-                    PreviouslySeenProducts.Add(item);
-                }
+                PreviouslySeenProducts = null;
+                PreviouslySeenProducts = new ObservableCollection<Product>(appliances.Products.Take(3));
 
                 IsInitialized = true;
             }
@@ -127,8 +139,13 @@ namespace TailwindTraders.Mobile.ViewModels
 
                 if (PopularProducts.Count == 0)
                 {
-                    PopularProducts.Add(new Product { Name = "Wood Table", Price = 100, ImageUrl = new Uri("https://ttstorageucrqili3hgqvk.blob.core.windows.net/product-detail/19806834.jpg") });
-                    PreviouslySeenProducts.Add(new Product { Name = "Microwave 0.9 Cu Ft 900 W", Price = 100, ImageUrl = new Uri("https://ttstorageucrqili3hgqvk.blob.core.windows.net/product-detail/10446729.jpg") });
+                    var popProd = new List<Product>();
+                    popProd.Add(new Product { Name = "Wood Table", Price = 100, ImageUrl = new Uri("https://ttstorageucrqili3hgqvk.blob.core.windows.net/product-detail/19806834.jpg") });
+                    PopularProducts = new ObservableCollection<Product>(popProd);
+
+                    var prevProd = new List<Product>();
+                    prevProd.Add(new Product { Name = "Microwave 0.9 Cu Ft 900 W", Price = 100, ImageUrl = new Uri("https://ttstorageucrqili3hgqvk.blob.core.windows.net/product-detail/10446729.jpg") });
+                    PreviouslySeenProducts = new ObservableCollection<Product>(prevProd);
                 }
             }
         }

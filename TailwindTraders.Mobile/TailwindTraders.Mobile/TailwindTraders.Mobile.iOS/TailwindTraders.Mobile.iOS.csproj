@@ -115,47 +115,129 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <ImageAsset Include="Assets.xcassets\header.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\header.imageset\header.jpg" />
-    <ImageAsset Include="Assets.xcassets\recommended_bathrooms.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\recommended_bathrooms.imageset\recommended_bathrooms.jpg" />
-    <ImageAsset Include="Assets.xcassets\recommended_hinges.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\recommended_hinges.imageset\recommended_hinges.jpg" />
-    <ImageAsset Include="Assets.xcassets\recommended_lighting.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\recommended_lighting.imageset\recommended_lighting.jpg" />
-    <ImageAsset Include="Assets.xcassets\recommended_plants.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\recommended_plants.imageset\recommended_plants.jpg" />
-    <ImageAsset Include="Assets.xcassets\recommended_powertools.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\recommended_powertools.imageset\recommended_powertools.jpg" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60-1.png" />
-    <ImageAsset Include="Assets.xcassets\logo_header_b.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\logo_header_b.imageset\logo_header_b.png" />
-    <ImageAsset Include="Assets.xcassets\logo_header_b.imageset\logo_header_b%402x.png" />
-    <ImageAsset Include="Assets.xcassets\logo_header_b.imageset\logo_header_b%403x.png" />
-    <ImageAsset Include="Assets.xcassets\logo_horizontal_b.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\logo_horizontal_b.imageset\logo_horizontal-b.png" />
-    <ImageAsset Include="Assets.xcassets\logo_horizontal_b.imageset\logo_horizontal-b%402x.png" />
-    <ImageAsset Include="Assets.xcassets\logo_horizontal_b.imageset\logo_horizontal-b%403x.png" />
-    <ImageAsset Include="Assets.xcassets\logo_microsoft_w.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\logo_microsoft_w.imageset\logo_microsoft_w.png" />
-    <ImageAsset Include="Assets.xcassets\logo_microsoft_w.imageset\logo_microsoft_w%402x.png" />
-    <ImageAsset Include="Assets.xcassets\logo_microsoft_w.imageset\logo_microsoft_w%403x.png" />
-    <ImageAsset Include="Assets.xcassets\logo_vertical_w.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\logo_vertical_w.imageset\logo_vertical_w.png" />
-    <ImageAsset Include="Assets.xcassets\logo_vertical_w.imageset\logo_vertical_w%402x.png" />
-    <ImageAsset Include="Assets.xcassets\logo_vertical_w.imageset\logo_vertical_w%403x.png" />
-    <ImageAsset Include="Assets.xcassets\photo.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\photo.imageset\photo.png" />
-    <ImageAsset Include="Assets.xcassets\photo.imageset\photo%402x.png" />
-    <ImageAsset Include="Assets.xcassets\photo.imageset\photo%403x.png" />
-    <ImageAsset Include="Assets.xcassets\splash_screen.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\splash_screen.imageset\Splash_screen.jpg" />
-    <ImageAsset Include="Assets.xcassets\splash_screen.imageset\Splash_screen%402x.jpg" />
-    <ImageAsset Include="Assets.xcassets\splash_screen.imageset\Splash_screen%403x.jpg" />
+    <ImageAsset Include="Assets.xcassets\header.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\header.imageset\header.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\recommended_bathrooms.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\recommended_bathrooms.imageset\recommended_bathrooms.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\recommended_hinges.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\recommended_hinges.imageset\recommended_hinges.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\recommended_lighting.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\recommended_lighting.imageset\recommended_lighting.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\recommended_plants.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\recommended_plants.imageset\recommended_plants.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\recommended_powertools.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\recommended_powertools.imageset\recommended_powertools.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_header_b.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_header_b.imageset\logo_header_b.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_header_b.imageset\logo_header_b%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_header_b.imageset\logo_header_b%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_horizontal_b.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_horizontal_b.imageset\logo_horizontal-b.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_horizontal_b.imageset\logo_horizontal-b%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_horizontal_b.imageset\logo_horizontal-b%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_microsoft_w.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_microsoft_w.imageset\logo_microsoft_w.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_microsoft_w.imageset\logo_microsoft_w%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_microsoft_w.imageset\logo_microsoft_w%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_vertical_w.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_vertical_w.imageset\logo_vertical_w.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_vertical_w.imageset\logo_vertical_w%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_vertical_w.imageset\logo_vertical_w%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\photo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\photo.imageset\photo.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\photo.imageset\photo%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\photo.imageset\photo%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\splash_screen.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\splash_screen.imageset\Splash_screen.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\splash_screen.imageset\Splash_screen%402x.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\splash_screen.imageset\Splash_screen%403x.jpg">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -196,7 +278,7 @@
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
       <Version>2.4.11.982</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.851321-pre3" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
     <PackageReference Include="Plugin.XSnack">
       <Version>1.0.17</Version>
@@ -211,16 +293,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\header.imageset\" />
-    <Folder Include="Assets.xcassets\recommended_bathrooms.imageset\" />
-    <Folder Include="Assets.xcassets\recommended_hinges.imageset\" />
-    <Folder Include="Assets.xcassets\recommended_lighting.imageset\" />
-    <Folder Include="Assets.xcassets\recommended_plants.imageset\" />
-    <Folder Include="Assets.xcassets\recommended_powertools.imageset\" />
     <Folder Include="Assets.xcassets\logo_header_b.imageset\" />
     <Folder Include="Assets.xcassets\logo_horizontal_b.imageset\" />
     <Folder Include="Assets.xcassets\logo_microsoft_w.imageset\" />
     <Folder Include="Assets.xcassets\logo_vertical_w.imageset\" />
     <Folder Include="Assets.xcassets\photo.imageset\" />
+    <Folder Include="Assets.xcassets\recommended_bathrooms.imageset\" />
+    <Folder Include="Assets.xcassets\recommended_hinges.imageset\" />
+    <Folder Include="Assets.xcassets\recommended_lighting.imageset\" />
+    <Folder Include="Assets.xcassets\recommended_plants.imageset\" />
+    <Folder Include="Assets.xcassets\recommended_powertools.imageset\" />
     <Folder Include="Assets.xcassets\splash_screen.imageset\" />
   </ItemGroup>
   <ItemGroup>
