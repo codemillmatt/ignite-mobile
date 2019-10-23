@@ -40,7 +40,7 @@ namespace TailwindTraders.Mobile
             // Handle when your app starts
             AppCenter.Start($"ios={AppCenterConstants.iOSAppSecret};" +
                   $"android={AppCenterConstants.AndroidAppSecret}",
-                  typeof(Analytics), typeof(Crashes), typeof(Push));
+                  typeof(Analytics), typeof(Crashes));
            
             // Check to see if app crashed during last run
             if (await Crashes.HasCrashedInLastSessionAsync())

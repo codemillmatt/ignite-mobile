@@ -8,9 +8,7 @@
              xmlns:views="clr-namespace:TailwindTraders.Mobile.Views"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              mc:Ignorable="d"             
-             ios:Page.UseSafeArea="True"
-             Shell.BackgroundColor="{StaticResource AccentColor}"
-             Shell.TitleColor="{StaticResource PrimaryColor}"
+             ios:Page.UseSafeArea="True"             
              x:Class="TailwindTraders.Mobile.Pages.ShoppingHomePage">
 
     <ContentPage.BindingContext>

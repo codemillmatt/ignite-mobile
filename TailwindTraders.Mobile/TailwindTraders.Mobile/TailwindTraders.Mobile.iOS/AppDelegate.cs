@@ -33,12 +33,7 @@ namespace TailwindTraders.Mobile.iOS
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
                        
-            LoadApplication(new App());
-
-            UINavigationBar.Appearance.Translucent = false;            
-            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(47, 75, 102);
-            UINavigationBar.Appearance.TintColor = UIColor.White;
-                        
+            LoadApplication(new App());                      
 
             return base.FinishedLaunching(app, options);
         }
