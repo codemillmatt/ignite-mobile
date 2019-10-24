@@ -10,8 +10,7 @@ using Microsoft.AppCenter.Analytics;
 using TailwindTraders.Mobile.Helpers;
 using System.Collections.Generic;
 using Microsoft.AppCenter.Push;
-using Xamarin.Essentials;
-using Plugin.Toasts;
+
 using Plugin.XSnack;
 using System.Threading.Tasks;
 
@@ -47,7 +46,14 @@ namespace TailwindTraders.Mobile
             {
                 var report = await Crashes.GetLastSessionCrashReportAsync();
 
-                Crashes.TrackError(report.Exception, new Dictionary<string, string> { { "RecoverFromCrash", "true" } });
+                var crashLastSessionEx = new Exception("Crash on last session");
+                var lastSessionCrashDict = new Dictionary<string, string>
+                {
+                    { "RecoverFromCrash", "true" },
+                    { "StackTrace", report.StackTrace }
+                };
+
+                Crashes.TrackError(crashLastSessionEx, lastSessionCrashDict);
             }
         }
 
@@ -64,18 +70,7 @@ namespace TailwindTraders.Mobile
         private async Task SetupPushNotifications()
         {
             if (!AppCenter.Configured)
-            {
-                var isEnabled = await Push.IsEnabledAsync();
-
-                if (!isEnabled)
-                {
-                    await Push.SetEnabledAsync(true);
-                    isEnabled = await Push.IsEnabledAsync();
-                }
-
-                if (!isEnabled)
-                    Analytics.TrackEvent("Issues with enabling push");
-
+            {                
                 Push.PushNotificationReceived += async (sender, e) =>
                 {
                     // Add the notification message and title to the message

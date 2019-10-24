@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Plugin.Toasts;
+
 using TailwindTraders.Mobile.Helpers;
 using TailwindTraders.Mobile.Models;
 using TailwindTraders.Mobile.Services;
@@ -105,8 +105,8 @@ namespace TailwindTraders.Mobile.ViewModels
         {
             try
             {
-                //if (IsInitialized)
-                //    return;
+                if (IsInitialized)
+                    return;
 
                 RecommendedCategories = null;
 
