@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TailwindTraders.Mobile.Andr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TailwindTraders.Mobile.iOS", "TailwindTraders.Mobile\TailwindTraders.Mobile.iOS\TailwindTraders.Mobile.iOS.csproj", "{B3CA8C30-6866-4045-B626-BE16AA8B983E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TailwindTraders.Mobile", "TailwindTraders.Mobile\TailwindTraders.Mobile\TailwindTraders.Mobile.csproj", "{C5E60C1E-2756-482B-B0E3-044DD763219E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TailwindTraders.Mobile.Core", "TailwindTraders.Mobile\TailwindTraders.Mobile.Core\TailwindTraders.Mobile.Core.csproj", "{C5E60C1E-2756-482B-B0E3-044DD763219E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

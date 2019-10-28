@@ -157,7 +157,6 @@
     <AndroidAsset Include="Assets\BrandonGrotesque-Medium.otf" />
     <AndroidAsset Include="Assets\Gin-Regular.otf" />
     <AndroidAsset Include="Assets\SegMDL2.ttf" />
-    <None Include="appcenter-pre-build.sh" />
     <GoogleServicesJson Include="google-services.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -181,12 +180,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TailwindTraders.Mobile\TailwindTraders.Mobile.csproj">
-      <Project>{C5E60C1E-2756-482B-B0E3-044DD763219E}</Project>
-      <Name>TailwindTraders.Mobile</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\header.jpg" />
@@ -400,6 +393,12 @@
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TailwindTraders.Mobile.Core\TailwindTraders.Mobile.Core.csproj">
+      <Project>{c5e60c1e-2756-482b-b0e3-044dd763219e}</Project>
+      <Name>TailwindTraders.Mobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -283,12 +283,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\TailwindTraders.Mobile\TailwindTraders.Mobile.csproj">
-      <Project>{C5E60C1E-2756-482B-B0E3-044DD763219E}</Project>
-      <Name>TailwindTraders.Mobile</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Assets.xcassets\header.imageset\" />
     <Folder Include="Assets.xcassets\logo_header_b.imageset\" />
     <Folder Include="Assets.xcassets\logo_horizontal_b.imageset\" />
@@ -305,5 +299,11 @@
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TailwindTraders.Mobile.Core\TailwindTraders.Mobile.Core.csproj">
+      <Project>{c5e60c1e-2756-482b-b0e3-044dd763219e}</Project>
+      <Name>TailwindTraders.Mobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
